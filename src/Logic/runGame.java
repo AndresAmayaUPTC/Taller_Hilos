@@ -1,14 +1,16 @@
 package Logic;
 
 import javax.swing.*;
-import java.awt.*;
+import java.util.ArrayList;
 
 public class runGame{
+
+    private ArrayList<String> imagenes = new ArrayList<>();
 
     public runGame(){
     }
 
-    public runGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree) {
+    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree) {
 
         ThreadCount runOne = new ThreadCount(jlOne);
         ThreadCount runTwo = new ThreadCount(jlTwo);
@@ -33,5 +35,13 @@ public class runGame{
         });
 
     }
+    public void finishThread(String image) {
 
+        imagenes.add(image);
+
+    }
+
+    public void finishGame() {
+
+    }
 }

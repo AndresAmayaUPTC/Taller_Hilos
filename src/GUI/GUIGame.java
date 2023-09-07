@@ -71,8 +71,11 @@ public class GUIGame extends JFrame {
 
         this.add(pnlCenter,BorderLayout.CENTER);
 
-        new runGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree);
+        runGame run = new runGame();
 
+        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree);
+
+        run.finishGame();
     }
 
 }
