@@ -77,9 +77,8 @@ public class MainWindow extends JFrame {
         this.add(pnlCenter, BorderLayout.CENTER);
 
         btnOne.addActionListener((e) -> {
-            Game game = new Game();
-            game.begin();
-            game.setVisible(true);
+            new GUIBet();
+            dispose();
         });
 
 

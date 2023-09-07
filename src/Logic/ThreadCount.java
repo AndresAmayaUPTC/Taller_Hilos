@@ -5,48 +5,39 @@ import java.util.Random;
 
 public class ThreadCount implements Runnable{
 
-    private JTextField text;
+    private JLabel text;
 
     private boolean state;
 
-    private boolean sw;
-
-    public ThreadCount(JTextField text, boolean sw) {
+    public ThreadCount(JLabel text) {
         this.text = text;
-        this.sw = sw;
         state = true;
     }
 
     @Override
     public void run() {
 
-        if (sw){
-            for (var i = Integer.MIN_VALUE; i <= Integer.MAX_VALUE && state; i++) {
+        long tiempoInicio = System.currentTimeMillis();
+        long tiempoLimite = tiempoInicio + 10000;
 
-                text.setText(""+i);
+        String[] imagenes = {
+                "/img/cereza.png",
+                "/img/naranja.png",
+                "/img/sandia.png",
+                "/img/siete.png",
+                "/img/uva.png"
+        };
 
-                try{
-                    Thread.sleep(new Random().nextInt(200));
-                }catch (InterruptedException e){
-                    throw new RuntimeException(e);
-                }
+        while (System.currentTimeMillis() < tiempoLimite && state) {
 
-            }
-        }else{
+            int a = new Random().nextInt(4);
 
-            for (var i = Integer.MAX_VALUE; i >= Integer.MIN_VALUE && state ; i--) {
+            Icon myIcon = new ImageIcon(new ImageIcon(getClass().getResource(imagenes[a])).getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
 
-                text.setText(""+i);
-
-                try{
-                    Thread.sleep(new Random().nextInt(200));
-                }catch (InterruptedException e){
-                    throw new RuntimeException(e);
-                }
-
-            }
+            text.setIcon(myIcon);
 
         }
+
 
     }
 
