@@ -6,7 +6,7 @@ import java.awt.*;
 public class GUIBet extends JFrame {
 
     private JTextField jtBet;
-    private JButton btnOne;
+    private JButton btnOne, btnBack;
     public GUIBet(){
         setTitle("Apuesta");
         setSize(480,240);
@@ -31,6 +31,8 @@ public class GUIBet extends JFrame {
         jtBet = new JTextField();
 
         btnOne = new JButton("INICIAR");
+
+        btnBack=new JButton("VOLVER");
     }
 
     private void addComponents() {
@@ -51,6 +53,13 @@ public class GUIBet extends JFrame {
         pnlCenter.add(btnOne);
 
         this.add(pnlCenter, BorderLayout.CENTER);
+
+        this.add(btnBack,BorderLayout.SOUTH);
+
+        btnBack.addActionListener((e) -> {
+            new MainWindow();
+            dispose();
+        });
 
         btnOne.addActionListener((e) -> {
 

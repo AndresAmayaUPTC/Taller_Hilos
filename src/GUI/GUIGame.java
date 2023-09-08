@@ -8,7 +8,7 @@ import java.awt.*;
 public class GUIGame extends JFrame {
 
     private JLabel jlOne, jlTwo, jlThree;
-    private JButton btnOne, btnTwo, btnThree, btnFinish;
+    private JButton btnOne, btnTwo, btnThree, btnFinish, btnAgain;
 
     private JLabel cash;
 
@@ -40,6 +40,7 @@ public class GUIGame extends JFrame {
         btnTwo = new JButton("STOP");
         btnThree = new JButton("STOP");
         btnFinish = new JButton("RESULTADO");
+        btnAgain = new JButton("VOLVER A JUGAR");
 
         cash = new JLabel("Dinero: "+text);
 
@@ -74,9 +75,11 @@ public class GUIGame extends JFrame {
 
         this.add(btnFinish,BorderLayout.SOUTH);
 
+        this.add(btnAgain,BorderLayout.EAST);
+
         runGame run = new runGame();
 
-        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree,btnFinish);
+        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree,btnFinish,btnAgain,this);
     }
 
 }

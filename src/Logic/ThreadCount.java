@@ -2,6 +2,7 @@ package Logic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 import java.util.Random;
 
 public class ThreadCount implements Runnable{
@@ -35,7 +36,11 @@ public class ThreadCount implements Runnable{
 
             int a = new Random().nextInt(5);
 
-            Icon myIcon = new ImageIcon(new ImageIcon(getClass().getResource(imagenes[a])).getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
+            ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagenes[a])));
+
+            text.setSize(100,70);
+
+            Icon myIcon = new ImageIcon(img.getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
 
             text.setIcon(myIcon);
 
