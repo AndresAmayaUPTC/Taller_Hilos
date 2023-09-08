@@ -12,7 +12,7 @@ public class runGame{
     public runGame(){
     }
 
-    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree, JButton btnFinish,JButton btnAgain, JFrame window) {
+    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree,JButton btnAgain, JFrame window) {
 
         ThreadCount runOne = new ThreadCount(jlOne);
         ThreadCount runTwo = new ThreadCount(jlTwo);
@@ -42,18 +42,32 @@ public class runGame{
             }
         });
 
-        btnFinish.addActionListener((e)->{
-            if(!runThree.isState() && !runOne.isState() && !runTwo.isState()) {
-                finishGame(runOne,runTwo,runThree,btnAgain,window);
+        new Thread(() ->{
+
+            boolean state = true;
+
+            while (state) {
+
+                System.out.println(".");
+                if(!runThree.isState() && !runOne.isState() && !runTwo.isState()) {
+                    System.out.println("ya");
+                    state=false;
+                    finishGame(runOne,runTwo,runThree,btnAgain,window);
+                }
             }
-        });
+        }).start();
 
     }
     private void finishGame(ThreadCount runOne, ThreadCount runTwo, ThreadCount runThree,JButton btnAgain, JFrame window) {
 
-        if(runOne.getImage().equals(runTwo.getImage()) || runTwo.equals(runThree.getImage()) || runThree.equals(runOne.getImage())){
 
-            if(runOne.getImage().equals(runTwo.getImage()) && runTwo.equals(runThree.getImage())){
+        System.out.println(runOne.getImage());
+        System.out.println(runTwo.getImage());
+        System.out.println(runThree.getImage());
+
+        if(runOne.getImage().equals(runTwo.getImage()) || runTwo.getImage().equals(runThree.getImage()) || runThree.getImage().equals(runOne.getImage())){
+
+            if(runOne.getImage().equals(runTwo.getImage()) && runTwo.getImage().equals(runThree.getImage())){
 
                 if(runOne.getImage().equals("/img/siete.png")){
                     System.out.println("Tres 7");
