@@ -2,15 +2,15 @@ package Logic;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.CountDownLatch;
 
 public class runGame{
-
-    private ArrayList<String> imagenes = new ArrayList<>();
 
     public runGame(){
     }
 
-    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree) {
+    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree, JButton btnFinish) {
 
         ThreadCount runOne = new ThreadCount(jlOne);
         ThreadCount runTwo = new ThreadCount(jlTwo);
@@ -25,23 +25,35 @@ public class runGame{
         thThree.start();
 
         btnOne.addActionListener((e)->{
-            runOne.stopThread();
+            if(runOne.isState()) {
+                runOne.stopThread();
+            }
         });
         btnTwo.addActionListener((e)->{
-            runTwo.stopThread();
+            if(runTwo.isState()) {
+                runTwo.stopThread();
+            }
         });
         btnThree.addActionListener((e)->{
-            runThree.stopThread();
+            if(runThree.isState()) {
+                runThree.stopThread();
+            }
+        });
+
+        btnFinish.addActionListener((e)->{
+            if(!runThree.isState() && !runOne.isState() && !runTwo.isState()) {
+                finishGame(runOne,runTwo,runThree);
+            }
         });
 
     }
-    public void finishThread(String image) {
+    private void finishGame(ThreadCount runOne, ThreadCount runTwo, ThreadCount runThree) {
 
-        imagenes.add(image);
+        System.out.println(runOne.getImage());
 
-    }
+        System.out.println(runTwo.getImage());
 
-    public void finishGame() {
+        System.out.println(runThree.getImage());
 
     }
 }

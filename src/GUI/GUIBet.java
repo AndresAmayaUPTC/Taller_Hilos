@@ -56,9 +56,10 @@ public class GUIBet extends JFrame {
 
             GUIGame game = new GUIGame();
 
+            dispose();
+
             game.begin(jtBet.getText());
 
-            dispose();
         });
 
 

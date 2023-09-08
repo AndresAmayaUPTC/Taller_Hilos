@@ -1,6 +1,7 @@
 package Logic;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 
 public class ThreadCount implements Runnable{
@@ -42,18 +43,20 @@ public class ThreadCount implements Runnable{
 
         }
 
-        state = false;
-        new runGame().finishThread(image);
+        stopThread();
 
     }
     public boolean isState() {
         return state;
     }
 
+    public String getImage() {
+        return image;
+    }
+
     public void stopThread(){
 
         state = false;
-        new runGame().finishThread(image);
     }
 }
 

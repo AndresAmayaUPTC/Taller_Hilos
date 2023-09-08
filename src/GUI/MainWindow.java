@@ -1,14 +1,11 @@
 package GUI;
 
-import Logic.ThreadCount;
-
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalTime;
 
 public class MainWindow extends JFrame {
-    private JLabel jlRules;
-    private JButton btnOne;
+    private JButton btnOne,btnRules;
 
     public MainWindow() {
 
@@ -17,6 +14,9 @@ public class MainWindow extends JFrame {
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
+        setVisible(true);
+
+        begin();
     }
 
     public void begin() {
@@ -29,9 +29,8 @@ public class MainWindow extends JFrame {
 
     private void beginComponents() {
 
-        jlRules = new JLabel("REGLAS DEL JUEGO");
-
         btnOne = new JButton("CONTINUAR");
+        btnRules = new JButton("REGLAS");
     }
 
     private void addComponents() {
@@ -61,16 +60,9 @@ public class MainWindow extends JFrame {
 
         JPanel pnlCenter = new JPanel();
 
-        pnlCenter.setLayout(null);
+        pnlCenter.setLayout(new GridLayout(2,1));
 
-        jlRules.setBounds(0,0,400,400);
-        jlRules.setBackground(Color.red);
-        jlRules.setOpaque(true);
-        jlRules.setHorizontalAlignment(SwingConstants.CENTER);
-
-        btnOne.setBounds(0,400,400,150);
-
-        pnlCenter.add(jlRules);
+        pnlCenter.add(btnRules);
 
         pnlCenter.add(btnOne);
 
@@ -81,6 +73,10 @@ public class MainWindow extends JFrame {
             dispose();
         });
 
+        btnRules.addActionListener((e) -> {
+            new GUIRules();
+            dispose();
+        });
 
     }
 }
