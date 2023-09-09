@@ -10,7 +10,7 @@ public class GUIGame extends JFrame {
     private JLabel jlOne, jlTwo, jlThree;
     private JButton btnOne, btnTwo, btnThree, btnAgain;
 
-    private JLabel cash;
+    private JLabel cash, auxcash;
 
     private JLabel jlCash;
     public GUIGame() {
@@ -41,7 +41,8 @@ public class GUIGame extends JFrame {
         btnThree = new JButton("STOP");
         btnAgain = new JButton("VOLVER A JUGAR");
 
-        cash = new JLabel("Dinero: "+text);
+        cash = new JLabel(text);
+        auxcash = new JLabel("Dinero: ");
 
     }
 
@@ -49,8 +50,11 @@ public class GUIGame extends JFrame {
 
         JPanel panel = new JPanel();
 
-        panel.setLayout(new FlowLayout());
+        panel.setLayout(new GridLayout(1,1));
         cash.setBackground(Color.blue);
+        auxcash.setBackground(Color.blue);
+        auxcash.setHorizontalAlignment(SwingConstants.RIGHT);
+        panel.add(auxcash);
         panel.add(cash);
 
         this.add(panel, BorderLayout.NORTH);

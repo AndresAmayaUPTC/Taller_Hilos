@@ -73,20 +73,28 @@ public class runGame{
             if(runOne.getImage().equals(runTwo.getImage()) && runTwo.getImage().equals(runThree.getImage())){
 
                 if(runOne.getImage().equals("/img/siete.png")){
-                    System.out.println("Tres 7");
+
+                    int newCash = Integer.parseInt(cashUpdated.getText()) * 3;
+                    cashUpdated.setText(""+newCash);
+                    JOptionPane.showMessageDialog(null,"Felicidades!! \n Has ganado "+newCash+" en tu apuesta");
                 }else{
-                    System.out.println("Tres iguales");
-                    JOptionPane.showMessageDialog(null,"Felicidades!! \n Has duplicado Tu apuesta");
+
+                    int newCash = Integer.parseInt(cashUpdated.getText()) * 2;
+                    cashUpdated.setText(""+newCash);
+                    JOptionPane.showMessageDialog(null,"Felicidades!! \n Has ganado "+newCash+" en tu apuesta");
                 }
 
             }else{
 
-                System.out.println("Dos Iguales");
-                JOptionPane.showMessageDialog(null,"CASI...! \n Has recuperado la mitad de tu apuesta");
+                double newCash = Integer.parseInt(cashUpdated.getText()) * 0.5;
+                cashUpdated.setText(""+newCash);
+                JOptionPane.showMessageDialog(null,"CASI...! \n Has recuperado "+newCash +" de tu apuesta inicial");
             }
         }else{
             JOptionPane.showMessageDialog(null,"Perdiste :( \n Has perdido lo apostado");
             System.out.println("Ninguna");
+            int newCash = Integer.parseInt(cashUpdated.getText()) * 0;
+            cashUpdated.setText(""+newCash);
         }
 
         save(cashUpdated,runOne,runTwo,runThree);
