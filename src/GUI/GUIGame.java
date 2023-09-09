@@ -76,7 +76,7 @@ public class GUIGame extends JFrame {
 
         runGame run = new runGame();
 
-        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree,btnAgain,this);
+        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree,btnAgain,this,cash);
     }
 
 }
