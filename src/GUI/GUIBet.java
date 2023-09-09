@@ -39,14 +39,11 @@ public class GUIBet extends JFrame {
 
         JPanel pnlCenter = new JPanel();
 
-        pnlCenter.setLayout(null);
+        pnlCenter.setLayout(new GridLayout(2,1));
 
-        jtBet.setBounds(0,0,480,100);
-        jtBet.setBackground(Color.red);
         jtBet.setOpaque(true);
         jtBet.setHorizontalAlignment(SwingConstants.CENTER);
 
-        btnOne.setBounds(0,100,480,130);
 
         pnlCenter.add(jtBet);
 

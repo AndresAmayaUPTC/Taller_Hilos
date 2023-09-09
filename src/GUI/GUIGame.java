@@ -8,14 +8,14 @@ import java.awt.*;
 public class GUIGame extends JFrame {
 
     private JLabel jlOne, jlTwo, jlThree;
-    private JButton btnOne, btnTwo, btnThree, btnAgain;
+    private JButton btnOne, btnTwo, btnThree, btnAgain, btnReturn;
 
     private JLabel cash, auxcash;
 
     private JLabel jlCash;
     public GUIGame() {
 
-        setTitle("Reglas");
+        setTitle("Traga Monedas");
         setSize(480,240);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -40,6 +40,7 @@ public class GUIGame extends JFrame {
         btnTwo = new JButton("STOP");
         btnThree = new JButton("STOP");
         btnAgain = new JButton("VOLVER A JUGAR");
+        btnReturn = new JButton("VOLVER AL MENÚ");
 
         cash = new JLabel(text);
         auxcash = new JLabel("Dinero: ");
@@ -76,11 +77,17 @@ public class GUIGame extends JFrame {
 
         this.add(pnlCenter,BorderLayout.CENTER);
 
-        this.add(btnAgain,BorderLayout.EAST);
+        JPanel pnlEast = new JPanel();
+        pnlEast.setLayout(new GridLayout(2,1));
+
+        pnlEast.add(btnReturn);
+        pnlEast.add(btnAgain);
+
+        this.add(pnlEast,BorderLayout.EAST);
 
         runGame run = new runGame();
 
-        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree,btnAgain,this,cash);
+        run.startGame(jlOne,jlTwo,jlThree,btnOne,btnTwo,btnThree,btnAgain,this,cash,btnReturn);
     }
 
 }

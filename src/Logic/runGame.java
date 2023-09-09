@@ -1,6 +1,7 @@
 package Logic;
 
 import GUI.GUIBet;
+import GUI.MainWindow;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -15,7 +16,7 @@ public class runGame{
     public runGame(){
     }
 
-    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree,JButton btnAgain, JFrame window, JLabel cashUpdated) {
+    public void startGame(JLabel jlOne, JLabel jlTwo, JLabel jlThree, JButton btnOne, JButton btnTwo, JButton btnThree,JButton btnAgain, JFrame window, JLabel cashUpdated,JButton btnReturn) {
 
         ThreadCount runOne = new ThreadCount(jlOne);
         ThreadCount runTwo = new ThreadCount(jlTwo);
@@ -55,13 +56,13 @@ public class runGame{
                 if(!runThree.isState() && !runOne.isState() && !runTwo.isState()) {
                     System.out.print("");
                     state=false;
-                    finishGame(runOne,runTwo,runThree,btnAgain,window,cashUpdated);
+                    finishGame(runOne,runTwo,runThree,btnAgain,window,cashUpdated,btnReturn);
                 }
             }
         }).start();
 
     }
-    private void finishGame(ThreadCount runOne, ThreadCount runTwo, ThreadCount runThree,JButton btnAgain, JFrame window, JLabel cashUpdated) {
+    private void finishGame(ThreadCount runOne, ThreadCount runTwo, ThreadCount runThree,JButton btnAgain, JFrame window, JLabel cashUpdated,JButton btnReturn) {
 
         try{
             Thread.sleep(1000);
@@ -103,6 +104,11 @@ public class runGame{
 
             window.dispose();
             new GUIBet();
+        });
+        btnReturn.addActionListener((e)->{
+
+            window.dispose();
+            new MainWindow();
         });
 
     }

@@ -1,3 +1,48 @@
 
  
  
+2023-09-08 22:10:23
+ 
+Imagen 1:siete
+Imagen 2:naranja
+Imagen 3:cereza
+Ganancia: 0
+ 
+ 
+ 
+2023-09-08 22:11:16
+ 
+Imagen 1:siete
+Imagen 2:siete
+Imagen 3:cereza
+Ganancia: 17.0
+ 
+ 
+ 
+2023-09-08 22:12:11
+ 
+Imagen 1:sandia
+Imagen 2:sandia
+Imagen 3:naranja
+Ganancia: 1060.5
+ 
+ 
+ 
+2023-09-08 22:22:40
+ 
+Imagen 1:cereza
+Imagen 2:sandia
+Imagen 3:siete
+Ganancia: 0
+ 
+ 
+ 
+2023-09-08 22:22:49
+ 
+Imagen 1:uva
+Imagen 2:sandia
+Imagen 3:cereza
+Ganancia: 0
+ 
+ 
+ 

@@ -39,15 +39,13 @@ public class GUIRules extends JFrame {
 
         String contenido = "Reglas:\n" +
                 "\n" +
-                "El juego consiste en una maquina paga monedas, en pantalla se cambiaran tres imagenes \n" +
-                "de forma aleatorio y despues de un tiempo al hacerlo manualmente con los botones \n" +
+                "El juego consiste en una maquina paga monedas, en pantalla se cambiaran tres imagenes de forma aleatorio, despues de un tiempo o hacerlo manualmente con los botones" +
                 "se detendran, dependiendo de las imagenes que queden se daran los siguientes resultados:\n" +
                 "\n" +
                 "\n" +
-                "1.Tres imagenes iguales: En este caso se devolvera el doble de lo apostado, a menos \n" +
-                "que las tres imagenes sean el 7, en cuyo caso se devolvera el triple de lo apostado\n" +
+                "1.Tres imagenes iguales: En este caso se devolvera el doble de lo apostado, a menos que las tres imagenes sean el 7, en cuyo caso se devolvera el triple de lo apostado\n" +
                 "\n" +
-                "2.dos imagenes iguales:Si se tienen dos imagenes iguales se devolvera la mitad de lo apostado\n" +
+                "2.Dos imagenes iguales: Si se tienen dos imagenes iguales se devolvera la mitad de lo apostado\n" +
                 "\n" +
                 "3.Por ultimo si no coinciden ninguna de las imagenes se perdera el dinero apostado";
 
