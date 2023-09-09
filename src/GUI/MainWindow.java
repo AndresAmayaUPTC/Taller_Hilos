@@ -9,7 +9,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
 
-        setTitle("Ejemplo de Hilos");
+        setTitle("Menu");
         setSize(400, 600);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
