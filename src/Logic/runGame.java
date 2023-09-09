@@ -1,16 +1,17 @@
 package Logic;
 
 import GUI.GUIBet;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+
+import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import java.util.Random;
 
 import javax.swing.*;
 
 public class runGame{
-
+    private int i=0;
     public runGame(){
     }
 
@@ -116,17 +117,27 @@ public class runGame{
 
         String cash = cashUpdated.getText().toString();
 
-        Properties properties = new Properties();
-        properties.setProperty("Imagen1",runOne.getImage() );
-        properties.setProperty("Imagen2",runTwo.getImage() );
-        properties.setProperty("Imagen3",runThree.getImage() );
-        properties.setProperty("Profit",cash);
 
-        try (OutputStream output = new FileOutputStream("History.properties")) {
-            properties.store(output, "HISTORIAL");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+       String fileName = "History.txt";
+
+       try (FileOutputStream fos = new FileOutputStream(fileName, true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter writer = new BufferedWriter(osw)) {
+
+           LocalDateTime fechaHoraActual = LocalDateTime.now();
+           DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+           String fechaHoraActualStr = fechaHoraActual.format(formato);
+
+           String newData = fechaHoraActualStr+"\n \n"+"Imagen 1:"+runOne.getImage()+"\n"+"Imagen 2:"+runTwo.getImage()+"\n"+"Imagen 3:"+runThree.getImage()+"\n"+"Ganancia: "+cash+"\n \n \n \n";
+
+           writer.write(newData);
+
+           System.out.println("Información agregada exitosamente.");
+
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
 
     }
 }
