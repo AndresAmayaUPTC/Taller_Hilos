@@ -5,11 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.concurrent.CountDownLatch;
 
 public class runGame{
 
@@ -52,9 +50,9 @@ public class runGame{
 
             while (state) {
 
-                System.out.println(".");
+                System.out.print("");
                 if(!runThree.isState() && !runOne.isState() && !runTwo.isState()) {
-                    System.out.println("ya");
+                    System.out.print("");
                     state=false;
                     finishGame(runOne,runTwo,runThree,btnAgain,window,cashUpdated);
                 }
@@ -64,7 +62,11 @@ public class runGame{
     }
     private void finishGame(ThreadCount runOne, ThreadCount runTwo, ThreadCount runThree,JButton btnAgain, JFrame window, JLabel cashUpdated) {
 
-
+        try{
+            Thread.sleep(1000);
+        }catch (InterruptedException e){
+            throw new RuntimeException(e);
+        }
 
         if(runOne.getImage().equals(runTwo.getImage()) || runTwo.getImage().equals(runThree.getImage()) || runThree.getImage().equals(runOne.getImage())){
 

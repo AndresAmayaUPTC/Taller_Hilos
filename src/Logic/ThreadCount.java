@@ -22,7 +22,7 @@ public class ThreadCount implements Runnable{
     public void run() {
 
         long tiempoInicio = System.currentTimeMillis();
-        long tiempoLimite = tiempoInicio + 10000;
+        long tiempoLimite = tiempoInicio + 8000;
 
         String[] imagenes = {
                 "/img/cereza.png",
@@ -34,17 +34,70 @@ public class ThreadCount implements Runnable{
 
         while (System.currentTimeMillis() < tiempoLimite && state) {
 
-            int a = new Random().nextInt(5);
+            try{
+                Thread.sleep(100);
 
-            ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagenes[a])));
+                int a = new Random().nextInt(5);
 
-            text.setSize(100,70);
+                ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagenes[a])));
 
-            Icon myIcon = new ImageIcon(img.getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
+                text.setSize(100,70);
 
-            text.setIcon(myIcon);
+                Icon myIcon = new ImageIcon(img.getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
 
-            image = imagenes[a];
+                text.setIcon(myIcon);
+
+                image = imagenes[a];
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
+
+        }
+
+        tiempoLimite = tiempoInicio + 13000;
+
+        while (System.currentTimeMillis() < tiempoLimite && state) {
+
+            try{
+                Thread.sleep(350);
+
+                int a = new Random().nextInt(5);
+
+                ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagenes[a])));
+
+                text.setSize(100,70);
+
+                Icon myIcon = new ImageIcon(img.getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
+
+                text.setIcon(myIcon);
+
+                image = imagenes[a];
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
+
+        }
+
+        tiempoLimite = tiempoInicio + 15000;
+
+        while (System.currentTimeMillis() < tiempoLimite && state) {
+
+            try{
+                Thread.sleep(600);
+                int a = new Random().nextInt(5);
+
+                ImageIcon img = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagenes[a])));
+
+                text.setSize(100,70);
+
+                Icon myIcon = new ImageIcon(img.getImage().getScaledInstance(text.getWidth(),text.getHeight(),0));
+
+                text.setIcon(myIcon);
+
+                image = imagenes[a];
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
 
         }
 
