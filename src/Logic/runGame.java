@@ -93,7 +93,6 @@ public class runGame{
             }
         }else{
             JOptionPane.showMessageDialog(null,"Perdiste :( \n Has perdido lo apostado");
-            System.out.println("Ninguna");
             int newCash = Integer.parseInt(cashUpdated.getText()) * 0;
             cashUpdated.setText(""+newCash);
         }
@@ -111,13 +110,7 @@ public class runGame{
 
    public void save(JLabel cashUpdated, ThreadCount runOne,ThreadCount runTwo, ThreadCount runThree ){
 
-        System.out.println(runOne.getImage());
-        System.out.println(runTwo.getImage());
-        System.out.println(runThree.getImage());
-
         String cash = cashUpdated.getText().toString();
-
-
 
        String fileName = "History.txt";
 
@@ -129,7 +122,7 @@ public class runGame{
            DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
            String fechaHoraActualStr = fechaHoraActual.format(formato);
 
-           String newData = fechaHoraActualStr+"\n \n"+"Imagen 1:"+runOne.getImage()+"\n"+"Imagen 2:"+runTwo.getImage()+"\n"+"Imagen 3:"+runThree.getImage()+"\n"+"Ganancia: "+cash+"\n \n \n \n";
+           String newData = fechaHoraActualStr+"\n \n"+"Imagen 1:"+runOne.getImage().replace("/img/", "").replace(".png", "")+"\n"+"Imagen 2:"+runTwo.getImage().replace("/img/", "").replace(".png", "")+"\n"+"Imagen 3:"+runThree.getImage().replace("/img/", "").replace(".png", "")+"\n"+"Ganancia: "+cash+"\n \n \n \n";
 
            writer.write(newData);
 

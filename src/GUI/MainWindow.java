@@ -5,7 +5,7 @@ import java.awt.*;
 import java.time.LocalTime;
 
 public class MainWindow extends JFrame {
-    private JButton btnOne,btnRules;
+    private JButton btnOne,btnRules,btnRecord;
 
     public MainWindow() {
 
@@ -31,6 +31,7 @@ public class MainWindow extends JFrame {
 
         btnOne = new JButton("CONTINUAR");
         btnRules = new JButton("REGLAS");
+        btnRecord = new JButton("HISTORIAL");
     }
 
     private void addComponents() {
@@ -60,11 +61,11 @@ public class MainWindow extends JFrame {
 
         JPanel pnlCenter = new JPanel();
 
-        pnlCenter.setLayout(new GridLayout(2,1));
+        pnlCenter.setLayout(new GridLayout(3,1));
 
         pnlCenter.add(btnRules);
-
         pnlCenter.add(btnOne);
+        pnlCenter.add(btnRecord);
 
         this.add(pnlCenter, BorderLayout.CENTER);
 
@@ -75,6 +76,11 @@ public class MainWindow extends JFrame {
 
         btnRules.addActionListener((e) -> {
             new GUIRules();
+            dispose();
+        });
+
+        btnRecord.addActionListener((e) -> {
+            new GUIRecord();
             dispose();
         });
 

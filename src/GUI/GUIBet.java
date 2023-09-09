@@ -63,11 +63,20 @@ public class GUIBet extends JFrame {
 
         btnOne.addActionListener((e) -> {
 
-            GUIGame game = new GUIGame();
+            try {
 
-            dispose();
+                Integer.parseInt(jtBet.getText());
 
-            game.begin(jtBet.getText());
+                GUIGame game = new GUIGame();
+
+                dispose();
+
+                game.begin(jtBet.getText());
+
+            } catch (NumberFormatException a) {
+                JOptionPane.showMessageDialog(null,"Valor de apuesta invalido");
+                jtBet.setText(null);
+            }
 
         });
 
